@@ -2,8 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import PageStatusContext from '../contexts/PageStatusContexts';
 
 const Login = () => {
-  const { loginCheck, setLoginCheck, currnetPage, setCurrentPage } =
-    useContext(PageStatusContext);
+  const { setLoginCheck, setCurrentPage } = useContext(PageStatusContext);
 
   const inputRef = useRef(null);
   const tds = useRef([]);
