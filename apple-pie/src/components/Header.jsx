@@ -14,8 +14,8 @@ const Header = () => {
       </section>
       { loginCheck === true && (
         <section>
-          <div>first</div>
-          <div>second</div>
+          <div onClick={() => setCurrentPage('main')}>first</div>
+          <div onClick={() => setCurrentPage('board')}>second</div>
           <div>third</div>
           <div>fourth</div>
           <div>fifth</div>
