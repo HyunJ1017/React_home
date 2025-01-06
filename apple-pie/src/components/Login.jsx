@@ -1,15 +1,18 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import PageStatusContext from '../contexts/PageStatusContexts';
 
-const Login = () => {
-  const { setLoginCheck, setCurrentPage } = useContext(PageStatusContext);
 
-  const inputRef = useRef(null);
+const Login = (props) => {
+
+  const { loginInputRef } = props;
+
+  const { loginCheck, setLoginCheck, setCurrentPage } = useContext(PageStatusContext);
+
   const tds = useRef([]);
   const [timer, setTimer] = useState(null);
 
   useEffect(() => {
-    inputRef.current?.focus();
+    loginInputRef.current?.focus();
     return () => {
       if (timer) clearInterval(timer); // 컴포넌트 언마운트 시 타이머 정리
     };
@@ -39,9 +42,9 @@ const Login = () => {
 
 
   const tableRender = () => {
-    const length = inputRef.current.value.length;
-    const focusFront = inputRef.current.selectionStart;
-    const focusBack = inputRef.current.selectionEnd;
+    const length = loginInputRef.current.value.length;
+    const focusFront = loginInputRef.current.selectionStart;
+    const focusBack = loginInputRef.current.selectionEnd;
   
     // 테이블 초기화
     tds.current.forEach((td, index) => {
@@ -81,7 +84,7 @@ const Login = () => {
           type="password"
           onKeyUp={login}
           onFocus={loginClick}
-          ref={inputRef}
+          ref={loginInputRef}
           id="login-password"
           maxLength={11}
         />

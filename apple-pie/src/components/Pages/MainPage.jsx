@@ -8,10 +8,11 @@ import WthrBox3Dust from '../Pages/WthrBox3Dust.jsx';
 const MainPage = (props) => {
 
   const { loginCheck, setLoginCheck, currnetPage, setCurrentPage } = useContext(PageStatusContext);
-  const mainBoxRef = props.mainBoxRef;
+  const {mainBoxRef, mainPageTimer, setMainPageTimer} = props;
+  const [wellcomeMessageFl, setWellcomeMessageFl] = useState(false);
   const wthrTextRef = useRef(null);
   const wthrMapRef = useRef(null);
-  const [mainPageTimer, setMainPageTimer] = useState(false);
+  
   
   useEffect(() => {
     // 메인박스 늘리기, transition: all 3s ease-in-out;

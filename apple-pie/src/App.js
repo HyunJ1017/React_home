@@ -13,6 +13,7 @@ function App() {
   /* 로그인 확인용 스테이터스 */
   const [loginCheck, setLoginCheck] = useState(false);
 
+
   /* 페이지 체크용 스테이터스 */
   const [currnetPage, setCurrentPage] = useState('main');
 
