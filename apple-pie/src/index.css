@@ -194,6 +194,7 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 44px;
 }
 .quill{
   width: 80%;
@@ -208,7 +209,7 @@ body{
 }
 
 
-/* 게시판판 */
+/* 게시판 */
 #board-page{
   display: flex;
   flex-direction: column;
@@ -216,6 +217,7 @@ body{
   justify-content: flex-start;
   width: 100%;
   min-height: 40vh;
+  position: relative;
 }
 
 /* 게시판 - 게시글목록록 */
@@ -229,4 +231,91 @@ body{
 #BoardList-table{
   border-collapse: collapse;
   width: 100%;
+  margin-bottom: 80px
+}
+#Pagination{
+  position: absolute;
+  bottom: 44px;
+  display: flex;
+  flex-direction: row;
+}
+#Pagination>div{
+  min-width: 36px;
+  height: 36px;
+  border: 1px solid #61DAFB;
+  border-radius: 18px;
+  padding: 7px;
+  margin: 0 5px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+#Pagination>div:hover{
+  background-color: #61DAFB;
+  color: #282c34;
+}
+#board-menu{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 34px;
+  
+  position: absolute;
+  bottom: 0;
+}
+#board-menu>div{
+  border: 1px solid #61DAFB;
+  border-radius: 18px;
+  padding: 7px;
+  margin: 0 5px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+#board-menu>div:hover{
+  background-color: #61DAFB;
+  color: #282c34;
+}
+
+#board-detail{
+  width: 100%;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 44px;
+}
+#board-info{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 50px 10px;
+}
+#board-info>div{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+#board-info>div>div{
+  margin: 5px;
+  min-width: 300px;
+}
+#board-info>div>div:nth-child(2n){
+  flex-grow: 3;
+  text-align: left;
+}
+#board-info>div>div:nth-child(2n-1){
+  flex-grow: 1;
+  text-align: right;
+}
+#board-content{
+  width: 100%;
+  min-height: 30vh;
+  padding: 10px 50px 10px;
+  border: #282C34 1px solid;
 }

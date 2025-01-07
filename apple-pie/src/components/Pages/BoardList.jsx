@@ -6,22 +6,31 @@ import axios from 'axios';
 const BoardList = () => {
 
   // context로 분배한 전역변수
-  const {boardPageStatus, setBoardPageStatus, boardCurrentPage, setBoardCurrentPage, boardCurrentCategory, setBoardCurrentCategory, boardListLimit, setBoardListLimit, boardList, setBoardList} = useContext(BoardStatusContexts);
+  const {boardPageStatus, setBoardPageStatus,
+    boardPagination, setBoardPagination, 
+    boardCurrentPage, setBoardCurrentPage, 
+    boardCurrentCategory, setBoardCurrentCategory, 
+    boardListLimit, setBoardListLimit, 
+    boardList, setBoardList,
+    setBoardCurrentDetaileNo} = useContext(BoardStatusContexts);
 
   useEffect(() => {
-    getBoardList(boardCurrentPage, boardCurrentCategory);
-  }, []);
+    getBoardList();
+  }, [boardCurrentPage, boardCurrentCategory, boardListLimit]);
 
-  const getBoardList = (page, category) => {
-    console.log(page, category);
+  const getBoardList = () => {
 
-    axios.get('http://localhost:80/appleBoard/getBoardList?cp=' + page + '&category=' + category + '&limit=' + boardListLimit)
+    axios.get('http://localhost:80/appleBoard/getBoardList?cp=' + boardCurrentPage + '&category=' + boardCurrentCategory + '&limit=' + boardListLimit)
     .then((response) => {
       console.log(response.data);
       const pagination = response.data.pagination;
       const boardList = response.data.boardList;
       setBoardList(boardList);
+      setBoardPagination(pagination);
     })
+    .catch((error) => {
+      console.error('Failed to fetch board list:', error);
+    });
   }
 
   return (
@@ -38,14 +47,21 @@ const BoardList = () => {
           </tr>
         </thead>
         <tbody>
-          {boardList.map( (item, index) => {return(
+        {boardList.length > 0 ? (
+          boardList.map((item, index) => (
             <tr key={item.appleBoardNo}>
               <td>{item.appleBoardNo}</td>
               <td>{item.appleBoardCategoryName}</td>
-              <td>{item.appleBoardTitle}</td>
+              <td onClick={() => {setBoardCurrentDetaileNo(item.appleBoardNo); setBoardPageStatus('boardDetail');}}>{item.appleBoardTitle}</td>
               <td>{item.appleMemberName}</td>
               <td>{item.appleBoardRegDate}</td>
-            </tr>)} )}
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan={5} style={{ textAlign: 'center' }}>There is No List</td>
+          </tr>
+        )}
         </tbody>
       </table>
     </section>
