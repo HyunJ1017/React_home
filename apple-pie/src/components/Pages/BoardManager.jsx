@@ -1,5 +1,7 @@
 import React, {useContext,  useState, useRef} from 'react';
 
+import axios from 'axios';
+
 import PageStatusContext from '../../contexts/PageStatusContexts.jsx';
 import BoardStatusContexts from '../../contexts/BoardStatusContexts.jsx';
 import BoardList from './BoardList.jsx';
@@ -10,9 +12,7 @@ import BoardMenu from './BoardMenu.jsx';
 
 const BoardManager = () => {
 
-  // context로 분배한 전역변수
-  const {currnetPage, setCurrentPage} = useContext(PageStatusContext);
-
+  // 게시판 페이지에서 사용할 변수들
   const [boardPageStatus, setBoardPageStatus] = useState('boardList');
   const [boardPagination, setBoardPagination] = useState('1');
   const [boardCurrentPage, setBoardCurrentPage] = useState('1');
@@ -21,15 +21,37 @@ const BoardManager = () => {
   const [boardList, setBoardList] = useState([]);
   const [boardCurrentDetaileNo, setBoardCurrentDetaileNo] = useState([]);
 
-  const insertBoard = (appleDelFl) => {
-    console.log('appleDelFl:', appleDelFl);
-  };
-
   const deleteBoard = () => {
     console.log('deleteBoard:', boardCurrentDetaileNo);
   }
 
-  const boardSubmitFormRef = useRef();
+  /* 게시글작성용 상태변수 */
+  const [formData, setFormData] = useState({
+    appleBoardTitle: '',
+    appleBoardCategoryNo: '1',
+    appleBoardContent: '',
+    appleBoardDelFl: 'N',
+  });
+  const handlerWriteInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+  const handlerWriteSubmit = async () => {
+    try {
+      const response = await axios.post('http://localhost:80/appleBoard/insert', formData);
+      console.log('Success:', response.data);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+  const clearFormData = () => {
+    setFormData({
+      appleBoardTitle: '',
+      appleBoardCategoryNo: '1',
+      appleBoardContent: '',
+      appleBoardDelFl: 'N',
+    });
+  };
 
   return (
     <BoardStatusContexts.Provider value={
@@ -40,24 +62,16 @@ const BoardManager = () => {
         boardListLimit, setBoardListLimit, 
         boardList, setBoardList,
         boardCurrentDetaileNo, setBoardCurrentDetaileNo,
-        insertBoard, deleteBoard}}>
+        deleteBoard, clearFormData,
+        formData, setFormData, handlerWriteInputChange, handlerWriteSubmit}}>
 
       <section id='board-page'>
       <div>BoardManager</div>
-      <div className='flexRow'>
-        <div>현재 페이지 : {boardCurrentPage}</div>
-        <div>현재 카테고리 : {boardCurrentCategory}</div>
-        <div>boardPagination.prevPage : {boardPagination.prevPage}</div>
-        <div>boardPagination.nextPage : {boardPagination.nextPage}</div>
-        <div>boardPagination.maxPage : {boardPagination.maxPage}</div>
-        <div>boardPagination.startPage : {boardPagination.startPage}</div>
-        <div>boardPagination.endPage : {boardPagination.endPage}</div>
-      </div>
       { boardPageStatus === 'boardList' && <BoardList />}
       { boardPageStatus === 'boardDetail' && <BoardDetail />}
-      { boardPageStatus === 'boardWrite' && <BoardWrite boardSubmitFormRef={boardSubmitFormRef} />}
+      { boardPageStatus === 'boardWrite' && <BoardWrite />}
       {/* { boardPageStatus === 'boardUpdate' && <BoardUpdate />} */}
-      { boardPageStatus === 'boardList' && <Pagination boardSubmitFormRef={boardSubmitFormRef} />}
+      { boardPageStatus === 'boardList' && <Pagination />}
       <BoardMenu />
 
       </section>

@@ -1,34 +1,40 @@
-import React, {useRef, useState} from 'react';
+import React, {useContext} from 'react';
+import BoardStatusContexts from '../../contexts/BoardStatusContexts';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // 스타일 필요
 
-const BoardWrite = (props) => {
+const BoardWrite = () => {
 
-  const boardSubmitFormRef = props.boardSubmitFormRef;
-  const [content, setContent] = useState('');
+  const {formData, setFormData, handlerWriteInputChange} = useContext(BoardStatusContexts);
+
 
   return (
     <>
-    <form
-      method='post'
-      action='http://localhost:80/appleBoard/insert' 
-      ref={boardSubmitFormRef}
-      id='quillForm'>
-      <label htmlFor="board-title">Title : <input type="text" id="board-title" name='appleBoardTitle'/></label>
+      <div>BoardWrite</div>
+      <label htmlFor="board-title">
+        Title :&nbsp;
+        <input type="text"
+          name="appleBoardTitle"
+          value={formData.appleBoardTitle}
+          onChange={handlerWriteInputChange}
+        />
+      </label>
       <label htmlFor="board-category">
-        Category :
-        <select name="appleBoardCategory" id="board-category">
+        Category :&nbsp;
+        <select 
+          name="appleBoardCategory"
+          value={formData.category}
+          onChange={handlerWriteInputChange}
+        >
           <option value="1">없음</option>
         </select>
       </label>
       <ReactQuill
         theme="snow"
-        value={content}
-        onChange={setContent}
+        value={formData.appleBoardContent}
+        onChange={(value) => setFormData((prev) => ({ ...prev, appleBoardContent: value }))}
         placeholder="Write your content here..."
-        name='appleBoardContent'
       />
-    </form>
     </>
   );
 }
