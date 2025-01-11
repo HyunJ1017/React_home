@@ -7,14 +7,13 @@ import axios from 'axios';
 const BoardDetail = () => {
   
   const {
-    boardCurrentDetaileNo, setBoardCurrentDetaileNo,
+    appleBoard, setAppleBoard
   } = useContext(BoardStatusContexts);
   
-  const [appleBoard, setAppleBoard] = useState({});
   const [sanitizedContent, setSanitizedContent] = useState(null);
   
   useEffect(() => {
-    axios.get('http://localhost:80/appleBoard/getBoardDetail?appleBoardNo=' + boardCurrentDetaileNo)
+    axios.get('http://localhost:80/appleBoard/getBoardDetail?appleBoardNo=' + appleBoard.appleBoardNo)
     .then((response) => {
       console.log(response.data);
       const board = response.data;
@@ -24,7 +23,7 @@ const BoardDetail = () => {
       console.error('Failed to fetch board list:', error);
     });
 
-  }, [boardCurrentDetaileNo]);
+  }, [appleBoard.appleBoardNo]);
 
   // appleBoard가 업데이트될 때 sanitizedContent를 업데이트
   useEffect(() => {

@@ -19,10 +19,16 @@ const BoardManager = () => {
   const [boardCurrentCategory, setBoardCurrentCategory] = useState('0');
   const [boardListLimit, setBoardListLimit] = useState([]);
   const [boardList, setBoardList] = useState([]);
-  const [boardCurrentDetaileNo, setBoardCurrentDetaileNo] = useState([]);
+  const [appleBoard, setAppleBoard] = useState({});
 
-  const deleteBoard = () => {
-    console.log('deleteBoard:', boardCurrentDetaileNo);
+  const deleteBoard = async () => {
+    try {
+      const response = await axios.get('http://localhost:80/appleBoard/delete?appleBoardNo='+ appleBoard.appleBoardNo);
+      console.log('Success:', response.data);
+      setBoardPageStatus('boardList');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   }
 
   /* 게시글작성용 상태변수 */
@@ -40,6 +46,22 @@ const BoardManager = () => {
     try {
       const response = await axios.post('http://localhost:80/appleBoard/insert', formData);
       console.log('Success:', response.data);
+      if(response.data.result === 'success'){
+        setAppleBoard((prev) => ({ ...prev, appleBoardNo : response.data.appleBoardNo }));
+        setBoardPageStatus('boardDetail');
+      } else {
+        alert("Data Insert Error");
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+  const handlerUpdateSubmit = async () => {
+    try {
+      const response = await axios.post('http://localhost:80/appleBoard/update', formData);
+      console.log('Success:', response.data);
+      setAppleBoard((prev)=>({... prev, formData}));
+      setBoardPageStatus('boardDetail');
     } catch (error) {
       console.error('Error submitting form:', error);
     }
@@ -61,16 +83,15 @@ const BoardManager = () => {
         boardCurrentCategory, setBoardCurrentCategory, 
         boardListLimit, setBoardListLimit, 
         boardList, setBoardList,
-        boardCurrentDetaileNo, setBoardCurrentDetaileNo,
+        appleBoard, setAppleBoard,
         deleteBoard, clearFormData,
-        formData, setFormData, handlerWriteInputChange, handlerWriteSubmit}}>
+        formData, setFormData, handlerWriteInputChange, handlerWriteSubmit, handlerUpdateSubmit}}>
 
       <section id='board-page'>
       <div>BoardManager</div>
       { boardPageStatus === 'boardList' && <BoardList />}
       { boardPageStatus === 'boardDetail' && <BoardDetail />}
-      { boardPageStatus === 'boardWrite' && <BoardWrite />}
-      {/* { boardPageStatus === 'boardUpdate' && <BoardUpdate />} */}
+      { ( boardPageStatus === 'boardWrite' || boardPageStatus === 'boardUpdate' ) && <BoardWrite />}
       { boardPageStatus === 'boardList' && <Pagination />}
       <BoardMenu />
 

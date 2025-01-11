@@ -12,7 +12,7 @@ const BoardList = () => {
     boardCurrentCategory, setBoardCurrentCategory, 
     boardListLimit, setBoardListLimit, 
     boardList, setBoardList,
-    setBoardCurrentDetaileNo} = useContext(BoardStatusContexts);
+    appleBoard, setAppleBoard} = useContext(BoardStatusContexts);
 
   useEffect(() => {
     getBoardList();
@@ -52,7 +52,7 @@ const BoardList = () => {
             <tr key={item.appleBoardNo}>
               <td>{item.appleBoardNo}</td>
               <td>{item.appleBoardCategoryName}</td>
-              <td onClick={() => {setBoardCurrentDetaileNo(item.appleBoardNo); setBoardPageStatus('boardDetail');}}>{item.appleBoardTitle}</td>
+              <td onClick={() => {setAppleBoard((prev) => ({ ...prev, appleBoardNo : item.appleBoardNo })); setBoardPageStatus('boardDetail');}}>{item.appleBoardTitle}</td>
               <td>{item.appleMemberName}</td>
               <td>{item.appleBoardRegDate}</td>
             </tr>

@@ -5,12 +5,18 @@ import 'react-quill/dist/quill.snow.css'; // 스타일 필요
 
 const BoardWrite = () => {
 
-  const {formData, setFormData, handlerWriteInputChange} = useContext(BoardStatusContexts);
+  const {
+    formData, setFormData, handlerWriteInputChange,
+    boardPageStatus
+  } = useContext(BoardStatusContexts);
 
 
   return (
     <>
-      <div>BoardWrite</div>
+      { boardPageStatus === 'boardWrite' 
+        ? <div>BoardWrite</div>
+        : <div>BoardUpdate</div>
+      }
       <label htmlFor="board-title">
         Title :&nbsp;
         <input type="text"
