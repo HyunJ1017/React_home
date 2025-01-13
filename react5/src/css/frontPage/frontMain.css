@@ -1,0 +1,24 @@
+.frontMainBox{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.visitBarBox{
+  width: 300px;
+  height: 200px;
+  padding: 5px;
+  background-color: #9c9c9c;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+.visitBar{
+  width: 30px;
+  min-height: 3px;
+  background-color: #61DAFB;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 12px;
+}

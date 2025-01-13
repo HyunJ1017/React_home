@@ -1,24 +1,25 @@
-import React from 'react';
+import React, {useContext} from 'react';
+
+import PageStateContext from 'contexts/PageStateContext.jsx';
+
+import Door from './Door.jsx';
+import Header from '../common/Header.jsx';
+import Footer from '../common/Footer.jsx';
+import FrontPage from '../frontPage/FrontMain.jsx';
+
 
 const Main = () => {
+
+  const { currentPage } = useContext(PageStateContext);
+
   return (
     <>
-    <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
+    <Door/>
+    <Header/>
+    <main>
+      {currentPage === 'frontPage' && <FrontPage/>}
+    </main>
+    <Footer/>
   </>
   );
 }

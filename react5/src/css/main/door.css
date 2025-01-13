@@ -1,0 +1,80 @@
+
+/* 대문 */
+.door-frame{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 101;
+}
+.door-top{
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 55vh;
+  z-index: 103;
+  background-color: #ffffff;
+  transition: all 1.5s ease-in-out;
+}
+.door-bottom{
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 50vh;
+  z-index: 102;
+  background-color: #9c9c9c;
+  transition: all 1.5s ease-in-out;
+}
+
+
+.door-harfCircle{
+  width: 36vw;
+  height: 18vw;
+  border-bottom-right-radius: 18vw;
+  border-bottom-left-radius: 18vw;
+  position: absolute;
+  bottom: -16vw;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #ffffff;
+}
+.door-topLine{
+  position: absolute;
+  bottom: 2vw;
+  width: 100vw;
+  border: none;
+  border-bottom: 4px solid #cdfb61;
+}
+.door-smallCircle{
+  border-bottom-right-radius: 16vw;
+  border-bottom-left-radius: 16vw;
+  width: 32vw;
+  height: 16vw;
+  border-bottom: 4px solid #cdfb61;
+  border-left: 4px solid #cdfb61;
+  border-right: 4px solid #cdfb61;
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #ffffff;
+}
+.door-smallCircle>img{
+  position: absolute;
+  top: -15vw;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 28vw;
+  height: 28vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.door-smallCircle>img:hover{
+  cursor: pointer;
+}
