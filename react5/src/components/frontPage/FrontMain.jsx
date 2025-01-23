@@ -289,7 +289,7 @@ const FrontMain = () => {
     return (
       <>
       <tr><td>미세먼지</td><td>초미세먼지</td></tr>
-      <tr><td>{dustList.pm10Grade}</td><td>{dustList.pm25Grade}</td></tr>
+      <tr><td style={{filter : 'brightness(3)'}}>{dustList.pm10Grade}</td><td style={{filter : 'brightness(3)'}}>{dustList.pm25Grade}</td></tr>
       <tr><td>{dustList.pm10GradeText}</td><td>{dustList.pm25GradeText}</td></tr>
       <tr><td>{dustList.pm10Value}</td><td>{dustList.pm25Value}</td></tr>
       </>
@@ -300,9 +300,17 @@ const FrontMain = () => {
 
   return (
     <>
-    <section className='frontMainBox'>
+    <section className='frontMainBox' style={{position: 'relative'}}>
       <section id='frontMainImgBox'>
         <img src={Front_Img} alt="" />
+      </section>
+      <section id='frontMainTextBox'>
+        <div className='btnDiv'>Profile</div>
+        <div className='btnDiv'>Career</div>
+        <div className='btnDiv'>Project</div>
+        <div className='btnDiv'></div>
+        <div className='btnDiv'></div>
+        <div className='btnDiv'></div>
       </section>
     </section>
     <section className='frontMainBox'>
@@ -331,33 +339,6 @@ const FrontMain = () => {
 
       {/* 하단우측영역 */}
       <section id='weatherBox'>
-        <section>
-          <p>미세먼지</p>
-          <div>
-            <select 
-              name="sidoName" 
-              id="sidoName"
-              ref={sidoNameRef}
-              onChange={(e) => {
-                setRegIdName((prev)=> ({ ...prev, sidoName: e.target.value }));
-              }}
-            >
-              {
-                sidoNameList.map((item, index) => {
-                  return (
-                    <option key={index} value={item}>{item}</option>
-                  );
-                })
-              }
-            </select>
-          </div>
-          <div>
-            <p>측정도시 : {regIdName.sidoName}</p>
-          </div>
-          <table border={1} id='dustTable'>
-            {dustRender(dustList)}
-          </table>
-        </section>
 
         <section>
           <p>주간 기온예보</p>
@@ -406,6 +387,34 @@ const FrontMain = () => {
           </div>
           <table border={1} id='midTemperatureTable'>
             {midTemperatureRender(midTamperature)}
+          </table>
+        </section>
+
+        <section>
+          <p>미세먼지</p>
+          <div>
+            <select 
+              name="sidoName" 
+              id="sidoName"
+              ref={sidoNameRef}
+              onChange={(e) => {
+                setRegIdName((prev)=> ({ ...prev, sidoName: e.target.value }));
+              }}
+            >
+              {
+                sidoNameList.map((item, index) => {
+                  return (
+                    <option key={index} value={item}>{item}</option>
+                  );
+                })
+              }
+            </select>
+          </div>
+          <div>
+            <p>측정도시 : {regIdName.sidoName}</p>
+          </div>
+          <table border={1} id='dustTable'>
+            {dustRender(dustList)}
           </table>
         </section>
 

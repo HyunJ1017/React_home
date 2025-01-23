@@ -12,12 +12,44 @@
 }
 
 #frontMainImgBox{
+  position: absolute;
+  top: 0;
+  z-index: -1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   width: 80%;
   height: 30vh;
+}
+#frontMainTextBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 1200px;
+  flex-grow: 0;
+  padding: 0;
+  margin-top: 100px;
+}
+#frontMainTextBox>.btnDiv{
+  width: 300px;
+  height: 180px;
+  margin: 50px;
+  border: #9c9c9c 1px solid;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #ffffff;
+  display: flex;
+  font-size: xx-large;
+  font-weight: 600;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+#frontMainTextBox>.btnDiv:hover{
+  background-color: #cacaca;
 }
 
 
@@ -33,7 +65,6 @@
   height: 100%;
 }
 .frontMainBox>section:nth-child(2){
-  flex-grow: 1;
 }
 .frontMainBox>section:last-child{
   min-width: 15vw;
@@ -59,12 +90,16 @@
 }
 
 
+#visitBox *,
+#weatherBox *{
+  color: #9c9c9c;
+}
 #visitBox>section,
 #weatherBox>section{
   width: 100%;
   margin: 10px 0;
   padding: 5px;
-  border: 2px solid black;
+  border: 2px solid rgb(98, 98, 98);
   border-radius: 5px;
 }
 
