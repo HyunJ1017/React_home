@@ -341,6 +341,7 @@ const FrontMain = () => {
       <section id='weatherBox'>
 
         <section>
+          <p>설날 장보기를 3일 내내 하고있네 ㅜㅜ</p>
           <p>주간 기온예보</p>
           <div>
             <select
