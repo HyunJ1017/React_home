@@ -6,6 +6,9 @@ import Door from './Door.jsx';
 import Header from '../common/Header.jsx';
 import Footer from '../common/Footer.jsx';
 import FrontPage from '../frontPage/FrontMain.jsx';
+import Profile from '../profile/Profile.jsx';
+import Career from '../career/Career.jsx';
+import Project from '../project/Project.jsx';
 
 
 const Main = () => {
@@ -17,7 +20,10 @@ const Main = () => {
     <Door/>
     <Header/>
     <main>
-      {currentPage === 'frontPage' && <FrontPage/>}
+      {currentPage === 'FrontPage' && <FrontPage/>}
+      {currentPage === 'Profile' && <Profile/>}
+      {currentPage === 'Career' && <Career/>}
+      {currentPage === 'Project' && <Project/>}
     </main>
     <Footer/>
   </>

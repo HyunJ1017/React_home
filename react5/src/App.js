@@ -10,7 +10,7 @@ import PageStateContext from 'contexts/PageStateContext.jsx';
 
 function App() {
 
-  const [currentPage, setCurrentPage] = useState('frontPage');
+  const [currentPage, setCurrentPage] = useState('FrontPage');
 
   return (
     <PageStateContext.Provider value={{

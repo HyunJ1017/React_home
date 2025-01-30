@@ -1,7 +1,7 @@
 .frontMainBox{
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
 }
 .frontMainBox:first-child{
@@ -33,13 +33,13 @@
   margin-top: 100px;
 }
 #frontMainTextBox>.btnDiv{
-  width: 300px;
+  width: 400px;
   height: 180px;
-  margin: 50px;
+  margin: 40px 100px;
   border: #9c9c9c 1px solid;
   border-radius: 10px;
   background-color: #ffffff;
-  color: #ffffff;
+  color: #cacaca;
   display: flex;
   font-size: xx-large;
   font-weight: 600;
@@ -50,6 +50,7 @@
 }
 #frontMainTextBox>.btnDiv:hover{
   background-color: #cacaca;
+  color: white;
 }
 
 

@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 
 import axios from 'axios';
 
 import Front_Img from 'images/front_Img1.png';
+import PageStateContext from 'contexts/PageStateContext.jsx';
 
 import 'css/frontPage/frontMain.css'
 
@@ -41,6 +42,7 @@ const FrontMain = () => {
   const [regIdName, setRegIdName] = useState({"regId":"11B10101","sidoName":"전국"});
   const [midTamperature, setMidTamperature] = useState([]);
   const [dustList, setDustList] = useState([]);
+  const { setCurrentPage } = useContext(PageStateContext);
 
   const sidoNameList = ['전국', '서울', '부산', '대구', '인천', '광주', '대전', '울산', '경기', '강원', '충북', '충남', '전북', '전남', '경북', '경남', '제주', '세종'];
 
@@ -305,12 +307,15 @@ const FrontMain = () => {
         <img src={Front_Img} alt="" />
       </section>
       <section id='frontMainTextBox'>
-        <div className='btnDiv'>Profile</div>
-        <div className='btnDiv'>Career</div>
-        <div className='btnDiv'>Project</div>
-        <div className='btnDiv'></div>
-        <div className='btnDiv'></div>
-        <div className='btnDiv'></div>
+        <div
+          className='btnDiv'
+          onClick={()=>setCurrentPage('Profile')}>Profile</div>
+        <div
+          className='btnDiv'
+          onClick={()=>setCurrentPage('Career')}>Career</div>
+        <div
+          className='btnDiv'
+          onClick={()=>setCurrentPage('Project')}>Project</div>
       </section>
     </section>
     <section className='frontMainBox'>
@@ -341,7 +346,6 @@ const FrontMain = () => {
       <section id='weatherBox'>
 
         <section>
-          <p>끝났다 ㅜㅜ</p>
           <p>주간 기온예보</p>
           <div>
             <select
