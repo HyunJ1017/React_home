@@ -54,3 +54,49 @@ header div{
 header>section:first-child>div:hover{
   cursor: pointer;
 }
+
+
+
+/* pages공통 */
+main>.contents-section{
+  min-height: 45vh;
+  min-width: 60vw;
+  max-width: 90vw;
+  padding: 2%;
+  border-radius: 25px;
+  margin: 50px auto;
+  opacity: 0;
+  visibility: visible;
+}
+.rowbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+.colbox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.harf-row{
+  width: 50%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.title-col{
+  width: 100%;
+  margin: 20px 0;
+}
+.contents-col{
+  width: 100%;
+  flex-grow: 1;
+}
+.img-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

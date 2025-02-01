@@ -1,0 +1,51 @@
+/* 세미/ 파이널 */
+.project-contents ul{
+  list-style: none; /* 기본 마커 제거 */
+}
+.project-contents li{
+  overflow-x: auto;
+  margin-top: 20px;
+  margin-left: 30px;
+  position: relative;
+}
+.project-contents li::before {/* 마커설정 */
+  content: "•";
+  position: absolute;
+  top: 0;
+  left: -13px;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  line-height: 1.4;
+}
+#final-img,
+#semi-img{
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+}
+
+#final-erd,
+#semi-erd{
+  width: 300px;
+  height: auto;
+}
+.project-contents table{
+  border-collapse: collapse;
+}
+.project-contents table th{
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-wrap: nowrap;
+}
+.project-contents table td{
+  min-width: 380px;
+  text-align: left;
+  padding: 5px;
+  text-wrap: nowrap;
+}
+.project-contents table caption{
+  caption-side: top;
+  text-align: left;
+  padding-bottom: 5px;
+}
