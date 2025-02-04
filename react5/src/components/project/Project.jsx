@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './css/pages/project.css';
+import 'css/pages/project.css';
 
 const Project = () => {
   return (
