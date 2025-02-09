@@ -18,7 +18,7 @@ const Profile = () => {
           </p>
           <p id="phone">
             <i class="fa-duotone fa-light fa-phone" style="--fa-primary-color: #137fd9; --fa-secondary-color: #137fd9;"></i>
-            010-2113-3766
+            010) 2113-3766
           </p>
           <p id="locate">
             <i class="fa-sharp-duotone fa-solid fa-compass" style="--fa-primary-color: #ff0000; --fa-secondary-color: #ffffff;"></i>
