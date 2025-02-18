@@ -6,12 +6,15 @@ const Profile = () => {
       <section className="contents-section rowbox" id="profile-section">
 
         <div className="harf-row">
+          
           <div className="img-container">
             <img src="images/profile.jpg" id="profile-img" alt="내사진" />
           </div>
+
         </div>
 
         <div className="harf-row" id="profile-box">
+
           <h1>박현준</h1>
           <h4>Park Hyunj Jun</h4>
           <p id="email">
@@ -41,6 +44,7 @@ const Profile = () => {
             <a href="https://github.com/HyunJ1017" target="_blank"><i className="fa-brands fa-github" style="color: #ffffff;"></i></a>
             <a href="https://hyunj1017.tistory.com/" target="_blank"><i className="fa-solid fa-circle-t"></i></a>
           </div>
+
         </div>
         
       </section>
