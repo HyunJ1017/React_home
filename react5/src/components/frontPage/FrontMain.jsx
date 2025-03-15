@@ -170,6 +170,7 @@ const FrontMain = () => {
 
     let baseTime = '202501010600';
     let date = new Date();
+    let year = date.getHours();
     let hour = date.getHours();
     let minute = date.getMinutes();
     let hourT = '18';
@@ -179,20 +180,20 @@ const FrontMain = () => {
     } else if(hour < 19 || (hour === 18 && minute < 15)){
       hourT = '06';
     }
-    let year = date.getFullYear();
+    let yearF = date.getFullYear();
     let month = date.getMonth() + 1;
     let day = date.getDate();
     if(month < 10){
       if(day < 10){
-        baseTime = year + '0' + month + '0' + day + hourT + '00';
+        baseTime = yearF + '0' + month + '0' + day + hourT + '00';
       } else {
-        baseTime = year + '0' + month + day + hourT + '00';
+        baseTime = yearF + '0' + month + day + hourT + '00';
       }
     } else {
       if(day < 10){
-        baseTime = year + month + '0' + day + hourT + '00';
+        baseTime = yearF + month + '0' + day + hourT + '00';
       } else {
-        baseTime = year + month + day + hourT + '00';
+        baseTime = yearF + month + day + hourT + '00';
       }
     }
 

@@ -38,20 +38,20 @@ const MainPage = (props) => {
     } else if(hour < 19 || (hour === 18 && minute < 15)){
       hourT = '06';
     }
-    let year = date.getFullYear();
+    let yearM = date.getFullYear();
     let month = date.getMonth() + 1;
     let day = date.getDate();
     if(month < 10){
       if(day < 10){
-        tmFc = year + '0' + month + '0' + day + hourT + '00';
+        tmFc = yearM + '0' + month + '0' + day + hourT + '00';
       } else {
-        tmFc = year + '0' + month + day + hourT + '00';
+        tmFc = yearM + '0' + month + day + hourT + '00';
       }
     } else {
       if(day < 10){
-        tmFc = year + month + '0' + day + hourT + '00';
+        tmFc = yearM + month + '0' + day + hourT + '00';
       } else {
-        tmFc = year + month + day + hourT + '00';
+        tmFc = yearM + month + day + hourT + '00';
       }
     }
     axios.get("http://192.168.219.100:80/getWthr/tomorrow?stnId=108&tmFc=" + tmFc)

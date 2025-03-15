@@ -14,29 +14,29 @@ const WthrBox2Area = () => {
     let baseDate = '';
     let baseTime = '';
     let date = new Date();
-    let year = date.getFullYear();
+    let yearW = date.getFullYear();
     let month = date.getMonth() + 1;
     let day = date.getDate();
     let hour = date.getHours();
     let minute = date.getMinutes();
     if( minute < 15){
-      date = new Date(year, month, day, hour-1);
+      date = new Date(yearW, month, day, hour-1);
     } 
-    year = date.getFullYear();
+    yearW = date.getFullYear();
     month = date.getMonth() + 1;
     day = date.getDate();
     hour = date.getHours();
     if(month < 10){
       if(day < 10){
-        baseDate = year + '0' + month + '0' + day;
+        baseDate = yearW + '0' + month + '0' + day;
       } else {
-        baseDate = year + '0' + month + day;
+        baseDate = yearW + '0' + month + day;
       }
     } else {
       if(day < 10){
-        baseDate = year + month + '0' + day;
+        baseDate = yearW + month + '0' + day;
       } else {
-        baseDate = year + month + day;
+        baseDate = yearW + month + day;
       }
     }
     if(hour < 10){
