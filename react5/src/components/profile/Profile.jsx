@@ -41,8 +41,8 @@ const Profile = () => {
             <a className="link-on sliderA" href="#stack-fireBase">FireBase</a>
           </div>
           <div id="link-icon">
-            <a href="https://github.com/HyunJ1017" target="_blank"><i className="fa-brands fa-github" ></i></a>
-            <a href="https://hyunj1017.tistory.com/" target="_blank"><i className="fa-solid fa-circle-t"></i></a>
+            <a href="https://github.com/HyunJ1017"><i className="fa-brands fa-github" ></i></a>
+            <a href="https://hyunj1017.tistory.com/"><i className="fa-solid fa-circle-t"></i></a>
           </div>
 
         </div>
