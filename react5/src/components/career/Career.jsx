@@ -7,12 +7,14 @@ const Career = () => {
     <>
       <section className="contents-section rowbox" id="log-section">
 
+        // 좌측 사진구역
         <div className="harf-row">
           <div className="img-container">
             <img src={ProfileImg} id="profile-img" alt="내사진" />
           </div>
         </div>
 
+        // 우측 메뉴구역
         <div className="harf-row" id="log-contents">
           <ul>
             <li>훈련기관</li>
