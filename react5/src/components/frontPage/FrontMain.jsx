@@ -304,9 +304,9 @@ const FrontMain = () => {
   return (
     <>
     <section className='frontMainBox' style={{position: 'relative'}}>
-      <section id='frontMainImgBox'>
+      {/* <section id='frontMainImgBox'>
         <img src={Front_Img} alt="" />
-      </section>
+      </section> */}
       <section id='frontMainTextBox'>
         <div
           className='btnDiv'
