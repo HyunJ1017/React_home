@@ -1,14 +1,10 @@
-.frontMainBox{
+.frontMainBox {
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
   align-items: flex-start;
   width: 100%;
-}
-.frontMainBox:first-child{
-  justify-content: center;
-}
-.frontMainBox:nth-child(2){
-  justify-content: space-between;
+  max-width: 1200px;
+  gap: 30px;
 }
 
 #frontMainImgBox{
@@ -22,24 +18,39 @@
   width: 80%;
   height: 30vh;
 }
+/****************************/
 #frontMainTextBox{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  flex-wrap: wrap;
   width: 1200px;
   flex-grow: 0;
   padding: 0;
   margin-top: 100px;
+  
 }
-#frontMainTextBox>.btnDiv{
-  width: 400px;
-  height: 180px;
-  margin: 40px 100px;
+#frontMainTextBox>div{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+#frontMainTextBox>div:first-child{
+  flex-grow: 1;
+}
+#frontMainTextBox>div:first-child
+>div:first-child{
+  align-self: flex-start;
+}
+#frontMainTextBox>div:first-child
+>div:last-child{
+  align-self: flex-end;
+}
+#frontMainTextBox .btnDiv{
+  width: 475px;
   border: #9c9c9c 1px solid;
   border-radius: 10px;
   background-color: #ffffff;
-  color: #cacaca;
+  color: #4e4e4e;
   display: flex;
   font-size: xx-large;
   font-weight: 600;
@@ -48,87 +59,88 @@
   justify-content: center;
   cursor: pointer;
 }
-#frontMainTextBox>.btnDiv:hover{
+#frontMainTextBox>div:first-child>.btnDiv{
+  height: 180px;
+  margin: 25px 10px;
+}
+#frontMainTextBox>div:last-child>.btnDiv{
+  height: 410px;
+  margin: 25px 10px;
+}
+#frontMainTextBox img{
+  width: 60%;
+  height: 60%;
+}
+#frontMainTextBox .btnDiv:hover{
   background-color: #cacaca;
   color: white;
 }
+/****************************/
 
+.infoCard {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 280px;
+  flex: 1;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
 
-.frontMainBox>section{
+.sectionTitle {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.visitChart, .visitStats {
+  margin: 10px 0;
+}
+
+.visitBarBox {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 10px;
-}
-.frontMainBox>section:first-child{
-  min-width: 15vw;
-  height: 100%;
-}
-.frontMainBox>section:nth-child(2){
-}
-.frontMainBox>section:last-child{
-  min-width: 15vw;
-}
-.visitBarBox{
-  width: 300px;
-  height: 200px;
-  padding: 5px;
-  /* background-color: #9c9c9c; */
-  border: #9c9c9c 1px solid;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
   justify-content: space-evenly;
+  align-items: flex-end;
+  height: 150px;
+  border: 1px solid #cceaff;
+  background-color: #f5fcff;
+  padding: 10px;
+  border-radius: 5px;
 }
-.visitBar{
-  width: 30px;
-  min-height: 3px;
+
+.visitBar {
+  width: 40px;
   background-color: #d1f1fa;
-  white-space: nowrap;
+  border: 1px solid #4da0ff;
   text-align: center;
   font-size: 12px;
 }
 
-
-#visitBox *,
-#weatherBox *{
-  color: #9c9c9c;
+.weatherCard {
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  padding-top: 10px;
 }
-#visitBox>section,
-#weatherBox>section{
+
+#midTemperatureTable,
+#dustTable {
   width: 100%;
-  margin: 10px 0;
-  padding: 5px;
-  border: 2px solid rgb(98, 98, 98);
-  border-radius: 5px;
-}
-
-#dustTable{
   border-collapse: collapse;
-  border-color: #9c9c9c;
-  width: 100%;
-}
-#dustTable>tr{
-  width: 100%;
-}
-#dustTable td{
-  text-align: center;
-  padding: 3px;
-}
-#dustTable>tr:nth-child(2)>td{
-  font-size: 40px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
 }
 
-#midTemperatureTable{
-  border-collapse: collapse;
-  border-color: #9c9c9c;
-  width: 100%;
-}
-#midTemperatureTable>tr{
-  width: 100%;
-}
-#midTemperatureTable td{
+#midTemperatureTable td,
+#dustTable td {
   text-align: center;
-  padding: 3px;
+  padding: 6px;
+  border: 1px solid #ccc;
+}
+
+#dustTable tr:nth-child(2) td {
+  font-size: 1.5rem;
+  font-weight: bold;
 }

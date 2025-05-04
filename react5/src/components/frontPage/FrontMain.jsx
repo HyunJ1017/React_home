@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef, useContext } from 'react'
 import axios from 'axios';
 
 import Front_Img from 'images/front_Img1.png';
+import Cat from 'images/circle_cropped_cat.png';
 import PageStateContext from 'contexts/PageStateContext.jsx';
 
 import 'css/frontPage/frontMain.css'
@@ -34,15 +35,13 @@ const RegNameRender = (props) => {
 
 const FrontMain = () => {
 
-  const [allVisitCount, setAllvisitCount] = useState(0);
-  const [weeklyVisitCountList, setWeeklyVisitCountList] = useState([]);
-  const [weeklyVisitCount, setWeeklyVisitCount] = useState(0);
   const [weatherRegionSecter, setWeatherRegionSecter] = useState(["A", "B"]);
   const [regionList, setRegionList] = useState([]);
   const [regIdName, setRegIdName] = useState({"regId":"11B10101","sidoName":"전국"});
   const [midTamperature, setMidTamperature] = useState([]);
   const [dustList, setDustList] = useState([]);
-  const { setCurrentPage } = useContext(PageStateContext);
+  const [weeklyVisitCountList, setWeeklyVisitCountList] = useState([]);
+  const { setCurrentPage, allVisitCount, setAllvisitCount, weeklyVisitCount, setWeeklyVisitCount } = useContext(PageStateContext);
 
   const sidoNameList = ['전국', '서울', '부산', '대구', '인천', '광주', '대전', '울산', '경기', '강원', '충북', '충남', '전북', '전남', '경북', '경남', '제주', '세종'];
 
@@ -308,34 +307,40 @@ const FrontMain = () => {
         <img src={Front_Img} alt="" />
       </section> */}
       <section id='frontMainTextBox'>
-        <div
-          className='btnDiv'
-          onClick={()=>setCurrentPage('Profile')}>Profile</div>
-        <div
-          className='btnDiv'
-          onClick={()=>setCurrentPage('Career')}>Career</div>
-        <div
-          className='btnDiv'
-          onClick={()=>setCurrentPage('Project')}>Project</div>
+        <div>
+          <div
+            className='btnDiv'
+            onClick={()=>setCurrentPage('Profile')}>Profile</div>
+          <div
+            className='btnDiv'
+            onClick={()=>setCurrentPage('Project')}>Project</div>
+        </div>
+        <div>
+          <div
+            className='btnDiv'
+            onClick={()=>setCurrentPage('Career')}>
+              <img src={Cat} alt="A-Cat" />
+              <div>Career</div>
+          </div>
+        </div>
       </section>
     </section>
+    
     <section className='frontMainBox'>
-      
 
-      {/* 하단좌측측영역 */}
-      <section id='visitBox'>
-        <section>
-          <div>
-            <p>일별 방문자 수(명)</p>
-            <div className='visitBarBox'>
-              {weeklyVisitCountBar(weeklyVisitCountList)}
-            </div>
+      {/* 하단좌측측영역 - 방문자통계 */}
+      <section id="visitBox" className="infoCard">
+        <p className="sectionTitle">방문 통계</p>
+        <div className="visitChart">
+          <p>일별 방문자 수 (명)</p>
+          <div className='visitBarBox'>
+            {weeklyVisitCountBar(weeklyVisitCountList)}
           </div>
-          <div>
-            <p>주간 방무자 수 : {weeklyVisitCount}</p>
-            <p>전체 방문자 수 : {allVisitCount}</p>
-          </div>
-        </section>
+        </div>
+        <div className="visitStats">
+          <p>주간 방문자 수: {weeklyVisitCount}</p>
+          <p>전체 방문자 수: {allVisitCount}</p>
+        </div>
       </section>
 
       {/* 하단중앙앙영역 */}
@@ -343,83 +348,62 @@ const FrontMain = () => {
 
       </section>
 
-      {/* 하단우측영역 */}
-      <section id='weatherBox'>
+      {/* 하단우측영역 - 날씨 */}
+      <section id="weatherBox" className="infoCard">
 
-        <section>
-          <p>주간 기온예보</p>
-          <div>
-            <select
-              name="weatherRegion-secter"
-              ref={weatherRegionSecterRef}
-              onChange={(e) => {
-                console.log("weatherRegionSecter/onChange() regIdNameFl : ", regIdNameFl);
-                if(regIdNameFl){
-                  console.log("weatherRegionSecter/onChange()");
-                  setWeatherRegionSecter(JSON.parse(e.target.value));
-                }
+        {/* 기온 예보 */}
+        <section className="weatherCard">
+          <p className="sectionTitle">주간 기온 예보</p>
+          <select ref={weatherRegionSecterRef}
+            onChange={(e) => {
+              console.log("weatherRegionSecter/onChange() regIdNameFl : ", regIdNameFl);
+              if(regIdNameFl){
+                console.log("weatherRegionSecter/onChange()");
+                setWeatherRegionSecter(JSON.parse(e.target.value));
               }}
-            >
-              <option value='["A","B"]'>서울, 경기, 인천</option>
-              <option value='["D"]'>강원도</option>
-              <option value='["C"]'>충청도</option>
-              <option value='["F"]'>전라도</option>
-              <option value='["E","H"]'>경상도</option>
-              <option value='["G"]'>제주도</option>
-            </select>
-          </div>
-          <div>
-            <select
-              name="wheatherRegion"
-              id="wheatherRegion"
-              ref={regNameRef}
-              onChange={(e) => {
-                console.log("wheatherRegion/onChange() regIdNameFl : ", regIdNameFl);
-                  if(regIdNameFl){
-                    console.log("wheatherRegion/onChange()");
-                    setRegIdName((prev) => ({ ...prev, regId : e.target.value}));
-                  }
+            }
+          >
+            <option value='["A","B"]'>서울, 경기, 인천</option>
+            <option value='["D"]'>강원도</option>
+            <option value='["C"]'>충청도</option>
+            <option value='["F"]'>전라도</option>
+            <option value='["E","H"]'>경상도</option>
+            <option value='["G"]'>제주도</option>
+          </select>
+
+          <select ref={regNameRef} 
+            onChange={(e) => {
+              console.log("wheatherRegion/onChange() regIdNameFl : ", regIdNameFl);
+                if(regIdNameFl){
+                  console.log("wheatherRegion/onChange()");
+                  setRegIdName((prev) => ({ ...prev, regId : e.target.value}));
                 }
               }
-            >
-              {<RegNameRender regIdName={regIdName} regionList={regionList} weatherRegionSecter={weatherRegionSecter}/>}
-            </select>
-          </div>
-          <div>
-            <p>측정도시 : {
-                regionList.find(e => e.regId === regIdName?.regId)?.regName || "선택 안됨"
-              }
-            </p>
-          </div>
-          <table border={1} id='midTemperatureTable'>
+            }
+
+          >
+            {<RegNameRender regIdName={regIdName} regionList={regionList} weatherRegionSecter={weatherRegionSecter} />}
+          </select>
+
+          <p>측정도시: {regionList.find(e => e.regId === regIdName?.regId)?.regName || "선택 안됨"}</p>
+          <table id="midTemperatureTable">
             {midTemperatureRender(midTamperature)}
           </table>
         </section>
 
-        <section>
-          <p>미세먼지</p>
-          <div>
-            <select 
-              name="sidoName" 
-              id="sidoName"
-              ref={sidoNameRef}
-              onChange={(e) => {
-                setRegIdName((prev)=> ({ ...prev, sidoName: e.target.value }));
-              }}
-            >
-              {
-                sidoNameList.map((item, index) => {
-                  return (
-                    <option key={index} value={item}>{item}</option>
-                  );
-                })
-              }
-            </select>
-          </div>
-          <div>
-            <p>측정도시 : {regIdName.sidoName}</p>
-          </div>
-          <table border={1} id='dustTable'>
+        {/* 미세먼지 */}
+        <section className="weatherCard">
+          <p className="sectionTitle">미세먼지</p>
+          <select ref={sidoNameRef} onChange={(e) => {
+            setRegIdName((prev)=> ({ ...prev, sidoName: e.target.value }));
+          }}>
+            {sidoNameList.map((item, index) => (
+              <option key={index} value={item}>{item}</option>
+            ))}
+          </select>
+
+          <p>측정도시: {regIdName.sidoName}</p>
+          <table id="dustTable">
             {dustRender(dustList)}
           </table>
         </section>

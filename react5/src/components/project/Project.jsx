@@ -1,5 +1,8 @@
 import React from 'react';
 
+import SemiProjectMain from 'images/semiProjectMain.png';
+import FinalProjectMain from 'images/finalProjectMain.png';
+
 import 'css/pages/project.css';
 
 const Project = () => {
@@ -11,13 +14,13 @@ const Project = () => {
         </div>
         <div className="contents-col rowbox">
           <div className="harf-row">
-            <img src="images/semi/semiProjectMain.png" id="semi-img" alt="세미이미지"/>
+            <img src={SemiProjectMain} id="semi-img" alt="세미이미지"/>
           </div>
           <div className="harf-row project-contents" id="project-semi">
             <ul>
-              <li><a target="_blank" href="https://free-quark-318.notion.site/Daemoim-Project-12fd734294028062b542ce5912b6c94c?pvs=4"><i className="fa-solid fa-share-from-square" style="color: #ffffff;"></i>프로젝트 노션 링크</a></li>
-              <li><a target="_blank" href="https://github.com/LeeNS-2024/daemoim"><i className="fa-solid fa-share-from-square" style="color: #ffffff;"></i>GitHub 링크<i className="fa-brands fa-github" style="color: #ffffff;"></i></a></li>
-              <li><a target="_blank" href="https://www.erdcloud.com/d/qkyXFeMDqXdgwA585"><i className="fa-solid fa-share-from-square" style="color: #ffffff;"></i>DB 설계 링크</a></li>
+              <li><a target="_blank" rel="noreferrer" href="https://free-quark-318.notion.site/Daemoim-Project-12fd734294028062b542ce5912b6c94c?pvs=4"><i className="fa-solid fa-share-from-square" style={{color: '#ffffff'}}></i>프로젝트 노션 링크</a></li>
+              <li><a target="_blank" rel="noreferrer" href="https://github.com/LeeNS-2024/daemoim"><i className="fa-solid fa-share-from-square" style={{color: '#ffffff'}}></i>GitHub 링크<i className="fa-brands fa-github" style={{color: '#ffffff'}}></i></a></li>
+              <li><a target="_blank" rel="noreferrer" href="https://www.erdcloud.com/d/qkyXFeMDqXdgwA585"><i className="fa-solid fa-share-from-square" style={{color: '#ffffff'}}></i>DB 설계 링크</a></li>
               <li><img src="images/semi/daemoimERD.png" id="semi-erd" alt="세미설계"/></li>
               <li>제작 기간 : 2024.09.12 - 10.31</li>
               <li>역할 : 팀원</li>
@@ -80,14 +83,14 @@ const Project = () => {
         </div>
         <div className="contents-col rowbox">
           <div className="harf-row">
-            <img src="images/final/finalProjectMain.png" id="final-img" alt="파이널이미지" />
+            <img src={FinalProjectMain} id="final-img" alt="파이널이미지" />
           </div>
           <div className="harf-row project-contents" id="project-final">
             <ul>
-              <li><a target="_blank" href="http://3.104.109.149/main"><i className="fa-solid fa-share-from-square" style="color: #ffffff;"></i> 프로젝트 링크</a></li>
-              <li><a target="_blank" href="https://free-quark-318.notion.site/135d7342940280f99f49f5f8ebd21e36?pvs=4"><i className="fa-solid fa-share-from-square" style="color: #ffffff;"></i> 프로젝트 노션 링크</a></li>
-              <li><a target="_blank" href="https://github.com/HyunJ1017/OdagiriJoe"><i className="fa-solid fa-share-from-square" style="color: #ffffff;"></i> GitHub 링크<i className="fa-brands fa-github" style="color: #ffffff;"></i></a></li>
-              <li><a target="_blank" href="https://www.erdcloud.com/d/uBNxxSCGY8FC7379T"><i className="fa-solid fa-share-from-square" style="color: #ffffff;"></i> DB 설계 링크</a></li>
+              <li><a target="_blank" rel="noreferrer" href="http://3.104.109.149/main"><i className="fa-solid fa-share-from-square" style={{color: '#ffffff'}}></i> 프로젝트 링크</a></li>
+              <li><a target="_blank" rel="noreferrer" href="https://free-quark-318.notion.site/135d7342940280f99f49f5f8ebd21e36?pvs=4"><i className="fa-solid fa-share-from-square" style={{color: '#ffffff'}}></i> 프로젝트 노션 링크</a></li>
+              <li><a target="_blank" rel="noreferrer" href="https://github.com/HyunJ1017/OdagiriJoe"><i className="fa-solid fa-share-from-square" style={{color: '#ffffff'}}></i> GitHub 링크<i className="fa-brands fa-github" style={{color: '#ffffff'}}></i></a></li>
+              <li><a target="_blank" rel="noreferrer" href="https://www.erdcloud.com/d/uBNxxSCGY8FC7379T"><i className="fa-solid fa-share-from-square" style={{color: '#ffffff'}}></i> DB 설계 링크</a></li>
               <li><img src="images/final/odagirijoeERD.png" id="final-erd" alt="파이널설계" /></li>
               <li>제작 기간 : 2024.11.05 - 12.05</li>
               <li>역할 : 팀장</li>
