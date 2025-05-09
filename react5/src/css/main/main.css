@@ -130,12 +130,14 @@ main>.contents-section{
   flex-grow: 1;
 }
 .img-container{
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
+  border: #ddd 1px solid;
 }
+
 #profile-section div,
 #profile-section a{
   color: black;

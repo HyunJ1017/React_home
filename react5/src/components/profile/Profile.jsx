@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ProfileImg from 'images/profile.jpg';
+
 const Profile = () => {
   return (
     <>
@@ -8,7 +10,7 @@ const Profile = () => {
         <div className="harf-row">
           
           <div className="img-container">
-            <img src="images/profile.jpg" id="profile-img" alt="내사진" />
+            <img src={ProfileImg} id="profile-img" alt="내사진" />
           </div>
 
         </div>
@@ -48,6 +50,7 @@ const Profile = () => {
         </div>
         
       </section>
+      
     </>
   );
 };

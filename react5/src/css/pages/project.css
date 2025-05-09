@@ -1,6 +1,10 @@
 /* 세미/ 파이널 */
-.project-contents ul{
+.project-contents .project-container{
   list-style: none; /* 기본 마커 제거 */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 0 20px 20px;
+  padding: 20px 5px 20px;
 }
 .project-contents li{
   overflow-x: auto;
@@ -28,14 +32,37 @@
   width: 300px;
   height: auto;
 }
+.img-container:hover{
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+.img-container:hover>#final-erd,
+.img-container:hover>#semi-erd{
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  height: auto;
+}
 .project-contents table{
-  border-collapse: collapse;
+  /* 테이블 곡률적용 */
+  border-collapse: separate; /* 반드시 separate로 해야 적용됨 */
+  border-radius: 10px;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  overflow: hidden;
 }
 .project-contents table th{
   text-align: center;
   padding-left: 10px;
   padding-right: 10px;
   text-wrap: nowrap;
+  background-color: #f9f9f9;
+}
+.project-contents table thead th:first-child{
+  border-top-left-radius: 10px;/* 테이블곡률과동일 */
+}
+.project-contents table thead th:last-child{
+  border-top-right-radius: 10px;/* 테이블곡률과동일 */
 }
 .project-contents table td{
   min-width: 380px;

@@ -1,0 +1,57 @@
+.contents-section{
+  width: 80vw;
+  max-width: 1600px;
+  border: #ddd 1px solid;
+  border-radius: 15px;
+}
+.harf-row{
+  margin: 50px;
+}
+.harf-row:first-child{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.img-container{
+  width: 60%;
+  width: 60%;
+}
+.img-container>img{
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+}
+#log-contents>ul>li:nth-child(2n){
+  list-style: none; /* 짝수번째 점 제거 */
+  margin-bottom: 10px;
+}
+
+#logSkill-box{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#logSkill-box>.skill-relative{
+  margin: 10px;
+  border: 1px solid #61DAFB;
+  border-radius: 18px;
+  padding: 5px 12px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+#logSkill-box>.skill-relative:hover{
+  background-color: #61DAFB;
+  color: #282c34;
+}
+#logSkill-box>.skill-relative>.skill-change{
+  opacity: 1;
+}
+#logSkill-box>.skill-relative:hover>.skill-absolute{
+  opacity: 1;
+}
+#logSkill-box>.skill-relative:hover>.skill-change{
+  opacity: 0.5;
+}
+#logSkill-box>.skill-relative>.skill-absolute{
+  opacity: 0;
+}
